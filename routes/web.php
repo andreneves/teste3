@@ -19,3 +19,6 @@ Route::get('/produto/{id}', [ProdutoController::class, 'show']);
 Route::get('/produto/{id}/edit', [ProdutoController::class, 'edit']);
 
 Route::get('/produto/{id}/destroy', [ProdutoController::class, 'destroy']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
