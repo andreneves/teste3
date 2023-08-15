@@ -10,9 +10,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/produto', [ProdutoController::class, 'index']);
+Route::get('/produto', [ProdutoController::class, 'index'])->name('produto.index');
 
 Route::get('/produto/create', [ProdutoController::class, 'create']);
+Route::post('/produto/create', [ProdutoController::class, 'store']);
 
 Route::get('/produto/{id}', [ProdutoController::class, 'show']);
 
