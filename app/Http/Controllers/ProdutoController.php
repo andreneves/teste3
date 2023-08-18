@@ -57,7 +57,7 @@ class ProdutoController extends Controller
     public function show(string $id)
     {
         $produto = Produto::find($id);
-        dd($produto);
+        return view('produto.produto_show', ['produto' => $produto]);
     }
 
     /**
@@ -66,10 +66,7 @@ class ProdutoController extends Controller
     public function edit(string $id)
     {
         $produto = Produto::find($id);
-        $produto->nome = 'Água Sanitária';
-        $produto->quantidade = 90;
-        $produto->preco = 7.4;
-        $produto->save();
+        return view('produto.produto_edit', ['produto' => $produto]);
     }
 
     /**
@@ -77,7 +74,26 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $messages = [
+            'nome.required' => 'O :attribute é obrigatório!',
+            'quantidade.required' => 'O :attribute é obrigatório!',
+            'preco.required' => 'O :attribute é obrigatório!',
+        ];
+
+        $validated = $request->validate([
+            'nome'          => 'required|min:5',
+            'quantidade'    => 'required',
+            'preco'         => 'required',
+        ], $messages);
+
+        $produto = Produto::find($id);
+        $produto->nome          = $request->nome;
+        $produto->quantidade    = $request->quantidade;
+        $produto->preco         = $request->preco;
+        $produto->save();
+
+        return redirect()->route('produto.index')->with('status', 'Produto alterado com sucesso!');
+
     }
 
     /**
