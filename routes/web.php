@@ -21,7 +21,11 @@ Route::get('/produto/{id}/edit', [ProdutoController::class, 'edit']);
 Route::put('/produto/{id}', [ProdutoController::class, 'update']);
 
 
-Route::get('/produto/{id}/destroy', [ProdutoController::class, 'destroy']);
+Route::delete('/produto/{id}', [ProdutoController::class, 'destroy']);
+
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

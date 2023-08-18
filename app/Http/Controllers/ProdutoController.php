@@ -103,5 +103,7 @@ class ProdutoController extends Controller
     {
         $produto = Produto::find($id);
         $produto->delete();
+
+        return redirect()->route('produto.index')->with('status', 'Produto excluido com sucesso!');
     }
 }
