@@ -20,7 +20,6 @@ Route::get('/produto/{id}', [ProdutoController::class, 'show']);
 Route::get('/produto/{id}/edit', [ProdutoController::class, 'edit']);
 Route::put('/produto/{id}', [ProdutoController::class, 'update']);
 
-
 Route::delete('/produto/{id}', [ProdutoController::class, 'destroy']);
 
 
