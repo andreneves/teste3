@@ -35,15 +35,17 @@ Produtos<br>
     <td>{{ $produto->preco }}</td>
     <td>{{ $produto->quantidade }}</td>
     <td>
+      
       <a href="{{ url('/produto/' . $produto->id) }}">VISUALIZAR</a>
+      
       <a href="{{ url('/produto/' . $produto->id . '/edit') }}">EDITAR</a>
+      
       <form method="POST" action="{{ url('/produto/' . $produto->id) }}" onsubmit = "return ConfirmDelete()">
         @method('DELETE')
         @csrf
         <input type="submit" value="EXCLUIR">
       </form>
-    
-    
+
     </td>
   </tr>
 @endforeach
