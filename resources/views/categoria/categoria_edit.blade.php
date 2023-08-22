@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
-Formulário de criação:<br>
+Formulário de edição:<br>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -15,18 +15,12 @@ Formulário de criação:<br>
     </div>
 @endif
 
-<form method="POST" action="{{ url('/produto/create') }}">
-
+<form method="POST" action="{{ url('/categoria/' . $categoria->id) }}">
+    @method('PUT')
     @csrf
 
   <label class="form-label" for="nome">Nome:</label><br>
-  <input class="form-control" type="text" name="nome"><br>
-
-  <label class="form-label" for="quantidade">Quantidade:</label><br>
-  <input class="form-control" type="text" name="quantidade"><br>
-
-  <label class="form-label" for="preco">Preço:</label><br>
-  <input class="form-control" type="text" name="preco"><br>
+  <input class="form-control" type="text" name="nome" value="{{ $categoria->nome }}"><br>
 
   <input  class="form-control" type="submit" value="ENVIAR">
 
