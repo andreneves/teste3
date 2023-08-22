@@ -17,9 +17,9 @@ Produtos<br>
   }
 </script>
 
-<a href="{{ url('/produto/create') }}">CRIAR</a><br>
+<a class="btn btn-success" href="{{ url('/produto/create') }}">CRIAR</a><br>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>ID</th>
     <th>Nome</th>
@@ -36,14 +36,14 @@ Produtos<br>
     <td>{{ $produto->quantidade }}</td>
     <td>
       
-      <a href="{{ url('/produto/' . $produto->id) }}">VISUALIZAR</a>
+      <a class="btn btn-primary" href="{{ url('/produto/' . $produto->id) }}">VISUALIZAR</a>
       
-      <a href="{{ url('/produto/' . $produto->id . '/edit') }}">EDITAR</a>
+      <a class="btn btn-warning" href="{{ url('/produto/' . $produto->id . '/edit') }}">EDITAR</a>
       
       <form method="POST" action="{{ url('/produto/' . $produto->id) }}" onsubmit = "return ConfirmDelete()">
         @method('DELETE')
         @csrf
-        <input type="submit" value="EXCLUIR">
+        <input class="btn btn-danger" type="submit" value="EXCLUIR">
       </form>
 
     </td>
