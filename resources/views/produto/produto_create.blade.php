@@ -19,6 +19,14 @@ Formulário de criação:<br>
 
     @csrf
 
+<label class="form-label" for="cars">Escolha uma categoria:</label>
+
+<select class="form-control" name="categoria_id" id="categoria_id">
+    @foreach ($categorias as $categoria)
+        <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+    @endforeach
+</select>
+
   <label class="form-label" for="nome">Nome:</label><br>
   <input class="form-control" type="text" name="nome"><br>
 

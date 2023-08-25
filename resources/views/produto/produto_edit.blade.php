@@ -19,6 +19,16 @@ Formulário de edição:<br>
     @method('PUT')
     @csrf
 
+<select class="form-control" name="categoria_id" id="categoria_id">
+    @foreach ($categorias as $categoria)
+        @if ($categoria->id == $produto->categoria_id)
+            <option value="{{ $categoria->id }}" selected>{{ $categoria->nome }}</option>
+        @else
+            <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+        @endif
+    @endforeach
+</select>
+
   <label class="form-label" for="nome">Nome:</label><br>
   <input class="form-control" type="text" name="nome" value="{{ $produto->nome }}"><br>
 
@@ -26,7 +36,7 @@ Formulário de edição:<br>
   <input class="form-control" type="text" name="quantidade" value="{{ $produto->quantidade }}"><br>
 
   <label class="form-label" for="preco">Preço:</label><br>
-  <input type="text" name="preco" value="{{ $produto->preco }}"><br>
+  <input class="form-control" type="text" name="preco" value="{{ $produto->preco }}"><br>
 
   <input class="form-control" type="submit" value="ENVIAR">
 
