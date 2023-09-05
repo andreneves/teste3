@@ -24,6 +24,8 @@ Route::put('/produto/{id}', [ProdutoController::class, 'update']);
 
 Route::delete('/produto/{id}', [ProdutoController::class, 'destroy']);
 
+Route::get('/listaDeProdutos', [ProdutoController::class, 'listaDeProdutos']);
+
 // ----------------------- produto ------------------------------
 
 // ----------------------- categoria ------------------------------

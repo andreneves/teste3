@@ -115,4 +115,10 @@ class ProdutoController extends Controller
 
         return redirect()->route('produto.index')->with('status', 'Produto excluido com sucesso!');
     }
+
+    public function listaDeProdutos(){
+        $produtos = Produto::get();
+        return view('produto.listaDeProdutos', ['produtos' => $produtos]);
+    }
+
 }
