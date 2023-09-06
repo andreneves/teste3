@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Produto;
-
+use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
@@ -39,4 +39,16 @@ class HomeController extends Controller
         ]);
 
     }
+
+    /*
+    // isto foi só um estudo sobre rotas para dar em aula
+    public function test(Request $request){
+        dd($request->route()->action['middleware'][0]);
+        //dd($request->collect());
+        $route = Route::current(); // Illuminate\Routing\Route
+        $name = Route::currentRouteName(); // string
+        $action = Route::currentRouteAction(); // string
+        dd($route, $name, $action);
+    }
+    */
 }
